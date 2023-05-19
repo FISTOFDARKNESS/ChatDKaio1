@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chatbot HTML</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .question {
+      color: #00ff00;
+    }
+
+    .answer {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Chatbot HTML</h1>
+    <div id="chatlog"></div>
+    <input type="text" id="userinput" placeholder="Faça uma pergunta">
+    <button onclick="askQuestion()">Enviar</button>
+  </div>
+
+  <script>
+    function askQuestion() {
+      var userInput = document.getElementById("userinput").value;
+      var chatLog = document.getElementById("chatlog");
+
+      // Adicione a pergunta do usuário ao chatlog
+      var userQuestion = document.createElement("p");
+      userQuestion.classList.add("question");
+      userQuestion.innerHTML = "> " + userInput;
+      chatLog.appendChild(userQuestion);
+
+      // Obtenha a resposta do chatbot (aqui você pode usar a lógica do seu chatbot)
+      var chatbotAnswer = getChatbotAnswer(userInput);
+
+      // Adicione a resposta do chatbot ao chatlog
+      var botAnswer = document.createElement("p");
+      botAnswer.classList.add("answer");
+      botAnswer.innerHTML = "- " + chatbotAnswer;
+      chatLog.appendChild(botAnswer);
+
+      // Limpe o campo de entrada
+      document.getElementById("userinput").value = "";
+    }
+
+    function getChatbotAnswer(question) {
+      // Lógica do chatbot - substitua por sua própria lógica de resposta aqui
+      // Você pode fazer chamadas a APIs, processamento de linguagem natural, etc.
+      // Neste exemplo, estou apenas retornando uma resposta fixa.
+      return "Esta é uma resposta do chatbot.";
+    }
+  </script>
+</body>
+</html>
